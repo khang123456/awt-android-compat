@@ -1,0 +1,10 @@
+#Basic Library Usage
+
+= Introduction =
+
+This page will show some small examples of how to use this library.  I plan on having listings showing the conversion of Sun's Graphics Trail samples to Android apps using this library to ease the conversion process.  Changing imports and the base class of the view classes should be the key to conversion.  Of course, the more better separation between logic and rendering, the better during this conversion, and the better during a wholesale conversion to pure Android.
+
+
+= Details =
+
+* Samples to come!
