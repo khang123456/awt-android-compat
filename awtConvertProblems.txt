@@ -1,0 +1,20 @@
+* java.awt.geom.Path2D uses net.pbdavey.util.Arrays
+* java.awt.Toolkit unavailable - Dimension, Rectangle - net.pbdavey.awt.Toolkit
+* java.awt.GraphicsEnvironment unavailable - Dimension, Rectangle - net.pbdavey.awt.GraphicsEnvironment
+* Dimension, Rectangle use JNI - initIDs
+* Android 1.5 - RoundRectangle2D and RoundRectIterator break dex.
+RoundRectangle2D line 596
+{{{
+        (x1class == 1) ? (x = x + w - (rrx0 + aw)) : (x = x - (rrx1 - aw));
+        (y1class == 1) ? (y = y + h - (rry0 + ah)) : (y = y - (rry1 - ah));
+
+        if(x1class == 1)
+        	x = x + w - (rrx0 + aw); 
+        else
+        	x = x - (rrx1 - aw);
+        
+        if(y1class == 1) 
+        	y = y + h - (rry0 + ah);
+        else
+        	y = y - (rry1 - ah);
+}}}
