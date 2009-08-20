@@ -7,7 +7,7 @@ This page will show some small examples of how to use this library.  I plan on h
 
 = Details =
 
-Current comparison: ShapesDemo2D
+Current comparison: ShapesDemo2D - copy and do a diff.  I was trying to find a good inline diff tool so text differences are easier to spot in this format, but nothing would output the similarities and then point out the line differences.  Hopefully I'll find something better with a bit more searching.
 
 awt-android-compat
 {{{
