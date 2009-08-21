@@ -1,27 +1,18 @@
 package net.pbdavey.awt;
 
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import and.awt.Shape;
-import and.awt.Stroke;
 import net.pbdavey.awt.RenderingHints.Key;
 import and.awt.BasicStroke;
-import and.awt.geom.Arc2D;
-import and.awt.geom.Ellipse2D;
-import and.awt.geom.GeneralPath;
-import and.awt.geom.Line2D;
-import and.awt.geom.Path2D;
+import and.awt.Color;
+import and.awt.Shape;
+import and.awt.Stroke;
 import and.awt.geom.PathIterator;
-import and.awt.geom.Rectangle2D;
-import and.awt.geom.RoundRectangle2D;
-import and.awt.geom.RoundRectangle2D.Double;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.RectF;
 import android.graphics.Paint.Style;
-import android.graphics.drawable.shapes.OvalShape;
 /**
- * So far it appears that Graphics2D is rougly equivalent to a Canvas with Paint.
+ * So far it appears that Graphics2D is roughly equivalent to a Canvas with Paint.
  * The Paint object contains information regarding Fonts and FontMetrics, while
  * the Canvas is a more raw drawing tool.
  * @author pbdavey
@@ -40,7 +31,7 @@ public class Graphics2D {
 	
 	public void setPaint(Color color) {
 		this.color = color;
-		paint.setColor(this.color.getInt());
+		paint.setColor(this.color.getRGB());
 	}
 	
 	public void setStroke(BasicStroke stroke) {
@@ -111,43 +102,7 @@ public class Graphics2D {
 		paint.setStyle(Style.STROKE);
 		canvas.drawText(string, x, y, paint);
 	}
-/*
-	public void draw(Line2D line) {
-		paint.setStyle(Style.STROKE);
-		canvas.drawLine((float)line.getX1(), (float)line.getY1(), (float)line.getX2(), (float)line.getY2(), paint);
-	}
 
-	public void draw(Rectangle2D rectangle) {
-		paint.setStyle(Style.STROKE);
-		canvas.drawRect((float)rectangle.getMinX(), (float)rectangle.getMinY(), (float)rectangle.getMaxX(), (float)rectangle.getMaxY(), paint);
-	}
-
-	public void draw(RoundRectangle2D rectangle) {
-		paint.setStyle(Style.STROKE);
-		canvas.drawRoundRect(new RectF((float)rectangle.getMinX(), (float)rectangle.getMinY(), (float)rectangle.getMaxX(), (float)rectangle.getMaxY()),
-				(float)rectangle.getArcWidth(), (float)rectangle.getArcHeight(), paint);	
-	}
-
-	public void draw(Arc2D arc) {
-		paint.setStyle(Style.STROKE);
-		RectF rect = new RectF((float)arc.getMinX(), (float)arc.getMinY(), (float)arc.getMaxX(), (float)arc.getMaxY());
-		canvas.drawArc(rect, (float)arc.getAngleStart(), (float)arc.getAngleExtent(), false, paint);
-	}
-
-	public void draw(Ellipse2D ellipse) {
-		paint.setStyle(Style.STROKE);
-		RectF rect = new RectF((float)ellipse.getMinX(), (float)ellipse.getMinY(), (float)ellipse.getMaxX(), (float)ellipse.getMaxY());
-		canvas.drawOval(rect, paint);
-	}
-
-	public void draw(Path2D.Float path) {
-		paint.setStyle(Style.STROKE);
-		
-		Path andPath = new Path();
-		//TODO Transfer and.awt.geom.Path into android.graphics.Path
-		
-	}
-	*/
 	public void draw(Shape s) {
 		PathIterator pi = s.getPathIterator(null);
 		Path path = convertAwtPathToAndroid(pi);
@@ -201,34 +156,4 @@ public class Graphics2D {
 		}		
 		return path;
 	}
-	/*
-	public void fill(Rectangle2D rectangle) {
-		paint.setStyle(Style.FILL);
-		canvas.drawRect((float)rectangle.getMinX(), (float)rectangle.getMinY(), (float)rectangle.getMaxX(), (float)rectangle.getMaxY(), paint);
-	}
-
-	public void fill(RoundRectangle2D rectangle) {
-		paint.setStyle(Style.FILL);
-		canvas.drawRoundRect(new RectF((float)rectangle.getMinX(), (float)rectangle.getMinY(), (float)rectangle.getMaxX(), (float)rectangle.getMaxY()),
-				(float)rectangle.getArcWidth(), (float)rectangle.getArcHeight(), paint);	
-	}
-
-	public void fill(Arc2D arc) {
-		paint.setStyle(Style.FILL);
-		RectF rect = new RectF((float)arc.getMinX(), (float)arc.getMinY(), (float)arc.getMaxX(), (float)arc.getMaxY());
-		canvas.drawArc(rect, (float)arc.getAngleStart(), (float)arc.getAngleExtent(), false, paint);
-	}
-
-	public void fill(Ellipse2D ellipse) {
-		paint.setStyle(Style.FILL);
-		RectF rect = new RectF((float)ellipse.getMinX(), (float)ellipse.getMinY(), (float)ellipse.getMaxX(), (float)ellipse.getMaxY());
-		canvas.drawOval(rect, paint);
-	}
-
-	public void fill(Path2D.Float path) {
-		paint.setStyle(Style.FILL);
-		// TODO Auto-generated method stub
-	}
-	*/
-	
 }

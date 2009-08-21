@@ -1,32 +1,22 @@
 package net.pbdavey.awt.demo;
 
 
+import net.pbdavey.awt.AwtView;
+import net.pbdavey.awt.Font;
+import net.pbdavey.awt.FontMetrics;
+import net.pbdavey.awt.Graphics2D;
+import net.pbdavey.awt.RenderingHints;
 import and.awt.BasicStroke;
-import and.awt.geom.Line2D;
+import and.awt.Color;
+import and.awt.Dimension;
 import and.awt.geom.Arc2D;
 import and.awt.geom.Ellipse2D;
 import and.awt.geom.GeneralPath;
+import and.awt.geom.Line2D;
 import and.awt.geom.Rectangle2D;
 import and.awt.geom.RoundRectangle2D;
-
-import net.pbdavey.awt.AwtView;
-import net.pbdavey.awt.Color;
-import net.pbdavey.awt.Dimension;
-import net.pbdavey.awt.Font;
-import net.pbdavey.awt.RenderingHints;
-import net.pbdavey.awt.FontMetrics;
-import net.pbdavey.awt.Graphics2D;
-
-import android.R.anim;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.ImageView;
 
 public class DemoView extends AwtView {
 	public DemoView(Context context) {
@@ -63,35 +53,38 @@ public class DemoView extends AwtView {
         // TODO setForeground(fg);
     }
 
-	FontMetrics pickFont(Graphics2D g2, String longString, int xSpace) {
-		boolean fontFits = false;
-		Font font = g2.getFont();
-		FontMetrics fontMetrics = g2.getFontMetrics();
-		int size = font.getSize();
-		String name = font.getName();
-		int style = font.getStyle();
+    FontMetrics pickFont(Graphics2D g2,
+            String longString,
+            int xSpace) {
+    	boolean fontFits = false;
+    	Font font = g2.getFont();
+    	FontMetrics fontMetrics = g2.getFontMetrics();
+    	int size = font.getSize();
+    	String name = font.getName();
+    	int style = font.getStyle();
 
-		while (!fontFits) {
-			if ((fontMetrics.getHeight() <= maxCharHeight)
-					&& (fontMetrics.stringWidth(longString) <= xSpace)) {
-				fontFits = true;
-			} else {
-				if (size <= minFontSize) {
-					fontFits = true;
-				} else {
-					g2.setFont(font = new Font(name, style, --size));
-					fontMetrics = g2.getFontMetrics();
-				}
-			}
-		}
+    	while ( !fontFits ) {
+    		if ( (fontMetrics.getHeight() <= maxCharHeight)
+    				&& (fontMetrics.stringWidth(longString) <= xSpace) ) {
+    			fontFits = true;
+    		}
+    		else {
+    			if ( size <= minFontSize ) {
+    				fontFits = true;
+    			}
+    			else {
+    				g2.setFont(font = new Font(name,
+                                  	style,
+                                  	--size));
+    				fontMetrics = g2.getFontMetrics();
+    			}
+    		}
+    	}
 
-		return fontMetrics;
-	}
+    	return fontMetrics;
+    }
 
-	@Override
 	protected void paint(Graphics2D g2) {
-		FontMetrics fontMetrics = null;
-		
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		Dimension d = getSize();
         int gridWidth = d.width / 6;

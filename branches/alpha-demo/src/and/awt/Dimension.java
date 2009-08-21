@@ -23,9 +23,11 @@
  * have any questions.
  */
 
-package net.pbdavey.awt;
+package and.awt;
 
 import and.awt.geom.Dimension2D;
+import net.pbdavey.awt.GraphicsEnvironment;
+import net.pbdavey.awt.Toolkit;
 
 /**
  * The <code>Dimension</code> class encapsulates the width and
@@ -80,13 +82,13 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
     /**
      * Initialize JNI field and method IDs
      */
-    //private static native void initIDs();
+    private static void initIDs() {}
 
     static {
         /* ensure that the necessary native libraries are loaded */
-        net.pbdavey.awt.Toolkit.loadLibraries();
-        if (!net.pbdavey.awt.GraphicsEnvironment.isHeadless()) {
-            //initIDs();
+        Toolkit.loadLibraries();
+        if (!GraphicsEnvironment.isHeadless()) {
+            initIDs();
         }
     }
 
@@ -161,7 +163,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
      *
      * @return   the size of this dimension, a new instance of
      *           <code>Dimension</code> with the same width and height
-     * @see      net.pbdavey.awt.Dimension#setSize
+     * @see      java.awt.Dimension#setSize
      * @see      java.awt.Component#getSize
      * @since    1.1
      */
@@ -174,7 +176,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
      * This method is included for completeness, to parallel the
      * <code>setSize</code> method defined by <code>Component</code>.
      * @param    d  the new size for this <code>Dimension</code> object
-     * @see      net.pbdavey.awt.Dimension#getSize
+     * @see      java.awt.Dimension#getSize
      * @see      java.awt.Component#setSize
      * @since    1.1
      */
@@ -190,7 +192,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
      *
      * @param    width   the new width for this <code>Dimension</code> object
      * @param    height  the new height for this <code>Dimension</code> object
-     * @see      net.pbdavey.awt.Dimension#getSize
+     * @see      java.awt.Dimension#getSize
      * @see      java.awt.Component#setSize
      * @since    1.1
      */

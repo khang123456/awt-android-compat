@@ -31,7 +31,7 @@ import java.io.StreamCorruptedException;
 
 import and.awt.Shape;
 //import java.util.Arrays;
-import net.pbdavey.awt.Rectangle;
+import and.awt.Rectangle;
 import net.pbdavey.util.Arrays;
 
 /**

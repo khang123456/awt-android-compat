@@ -23,11 +23,11 @@
  * have any questions.
  */
 
-package net.pbdavey.awt;
+package and.awt;
 
-import and.awt.Point;
-import and.awt.Shape;
 import and.awt.geom.Rectangle2D;
+import net.pbdavey.awt.GraphicsEnvironment;
+import net.pbdavey.awt.Toolkit;
 
 /**
  * A <code>Rectangle</code> specifies an area in a coordinate space that is
@@ -168,13 +168,13 @@ public class Rectangle extends Rectangle2D
     /**
      * Initialize JNI field and method IDs
      */
-    //private static native void initIDs();
+    private static void initIDs() {}
 
     static {
         /* ensure that the necessary native libraries are loaded */
-    	net.pbdavey.awt.Toolkit.loadLibraries();
-        if (!net.pbdavey.awt.GraphicsEnvironment.isHeadless()) {
-            //initIDs();
+        Toolkit.loadLibraries();
+        if (!GraphicsEnvironment.isHeadless()) {
+            initIDs();
         }
     }
 
@@ -330,7 +330,7 @@ public class Rectangle extends Rectangle2D
      * <code>setBounds</code> method of <code>Component</code>.
      * @param r the specified <code>Rectangle</code>
      * @see       #getBounds
-     * @see       java.awt.Component#setBounds(net.pbdavey.awt.Rectangle)
+     * @see       java.awt.Component#setBounds(java.awt.Rectangle)
      * @since     1.1
      */
     public void setBounds(Rectangle r) {
@@ -463,7 +463,7 @@ public class Rectangle extends Rectangle2D
      * <code>setLocation</code> method of <code>Component</code>.
      * @param p the <code>Point</code> specifying the new location
      *                for this <code>Rectangle</code>
-     * @see       java.awt.Component#setLocation(and.awt.Point)
+     * @see       java.awt.Component#setLocation(java.awt.Point)
      * @see       #getLocation
      * @since     1.1
      */
@@ -508,8 +508,8 @@ public class Rectangle extends Rectangle2D
      *                 along the X axis
      * @param dy the distance to move this <code>Rectangle</code>
      *                 along the Y axis
-     * @see       net.pbdavey.awt.Rectangle#setLocation(int, int)
-     * @see       net.pbdavey.awt.Rectangle#setLocation(and.awt.Point)
+     * @see       java.awt.Rectangle#setLocation(int, int)
+     * @see       java.awt.Rectangle#setLocation(java.awt.Point)
      */
     public void translate(int dx, int dy) {
         int oldv = this.x;
@@ -602,7 +602,7 @@ public class Rectangle extends Rectangle2D
      * This method is included for completeness, to parallel the
      * <code>setSize</code> method of <code>Component</code>.
      * @param d the new size for the <code>Dimension</code> object
-     * @see       java.awt.Component#setSize(net.pbdavey.awt.Dimension)
+     * @see       java.awt.Component#setSize(java.awt.Dimension)
      * @see       #getSize
      * @since     1.1
      */

@@ -27,7 +27,7 @@ package and.awt.geom;
 
 import java.io.Serializable;
 
-import net.pbdavey.awt.Rectangle;
+import and.awt.Rectangle;
 
 import and.awt.Shape;
 
