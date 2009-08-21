@@ -29,7 +29,7 @@ import java.util.Vector;
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
 
-import net.pbdavey.awt.Rectangle;
+import and.awt.Rectangle;
 
 import and.awt.Shape;
 import sun.awt.geom.Curve;

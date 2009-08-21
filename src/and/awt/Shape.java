@@ -25,7 +25,7 @@
 
 package and.awt;
 
-import net.pbdavey.awt.Rectangle;
+import and.awt.Rectangle;
 import and.awt.geom.AffineTransform;
 import and.awt.geom.PathIterator;
 import and.awt.geom.Point2D;

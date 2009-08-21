@@ -1,5 +1,7 @@
 package net.pbdavey.awt;
 
+import and.awt.Color;
+import and.awt.Dimension;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
@@ -16,7 +18,7 @@ public abstract class AwtView extends View {
 	}
 
 	public void setBackground(Color bgColor) {
-		this.setBackgroundColor(bgColor.getInt());
+		this.setBackgroundColor(bgColor.getRGB());
 	}
 	
 	public Dimension getSize() {
