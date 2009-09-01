@@ -27,8 +27,14 @@ package and.awt;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import and.awt.image.ImageObserver;
-import and.text.AttributedCharacterIterator;
+
+import net.pbdavey.awt.Font;
+import net.pbdavey.awt.FontMetrics;
+
+import and.awt.Color;
+import and.awt.Polygon;
+import and.awt.Rectangle;
+import and.awt.Shape;
 
 /**
  * The <code>Graphics</code> class is the abstract base class for
@@ -797,9 +803,11 @@ public abstract class Graphics {
      * @see         java.awt.Graphics#drawBytes
      * @see         java.awt.Graphics#drawChars
      */
-   public abstract void drawString(AttributedCharacterIterator iterator,
+    /*
+     * FIXME
+    public abstract void drawString(AttributedCharacterIterator iterator,
                                     int x, int y);
-
+	*/
     /**
      * Draws the text given by the specified character array, using this
      * graphics context's current font and color. The baseline of the
@@ -879,9 +887,11 @@ public abstract class Graphics {
      * @see      java.awt.image.ImageObserver
      * @see      java.awt.image.ImageObserver#imageUpdate(java.awt.Image, int, int, int, int, int)
      */
+    /*
+     * FIXME
     public abstract boolean drawImage(Image img, int x, int y,
                                       ImageObserver observer);
-
+	*/
     /**
      * Draws as much of the specified image as has already been scaled
      * to fit inside the specified rectangle.
@@ -918,10 +928,12 @@ public abstract class Graphics {
      * @see      java.awt.image.ImageObserver
      * @see      java.awt.image.ImageObserver#imageUpdate(java.awt.Image, int, int, int, int, int)
      */
+    /*
+     * FIXME
     public abstract boolean drawImage(Image img, int x, int y,
                                       int width, int height,
                                       ImageObserver observer);
-
+	*/
     /**
      * Draws as much of the specified image as is currently available.
      * The image is drawn with its top-left corner at
@@ -960,10 +972,12 @@ public abstract class Graphics {
      * @see      java.awt.image.ImageObserver
      * @see      java.awt.image.ImageObserver#imageUpdate(java.awt.Image, int, int, int, int, int)
      */
+    /*
+     * FIXME
     public abstract boolean drawImage(Image img, int x, int y,
                                       Color bgcolor,
                                       ImageObserver observer);
-
+	*/
     /**
      * Draws as much of the specified image as has already been scaled
      * to fit inside the specified rectangle.
@@ -1005,11 +1019,13 @@ public abstract class Graphics {
      * @see      java.awt.image.ImageObserver
      * @see      java.awt.image.ImageObserver#imageUpdate(java.awt.Image, int, int, int, int, int)
      */
+    /*
+     * FIXME
     public abstract boolean drawImage(Image img, int x, int y,
                                       int width, int height,
                                       Color bgcolor,
                                       ImageObserver observer);
-
+	*/
     /**
      * Draws as much of the specified area of the specified image as is
      * currently available, scaling it on the fly to fit inside the
@@ -1060,11 +1076,13 @@ public abstract class Graphics {
      * @see         java.awt.image.ImageObserver#imageUpdate(java.awt.Image, int, int, int, int, int)
      * @since       JDK1.1
      */
+    /*
+     * FIXME
     public abstract boolean drawImage(Image img,
                                       int dx1, int dy1, int dx2, int dy2,
                                       int sx1, int sy1, int sx2, int sy2,
                                       ImageObserver observer);
-
+	*/
     /**
      * Draws as much of the specified area of the specified image as is
      * currently available, scaling it on the fly to fit inside the
@@ -1121,12 +1139,14 @@ public abstract class Graphics {
      * @see         java.awt.image.ImageObserver#imageUpdate(java.awt.Image, int, int, int, int, int)
      * @since       JDK1.1
      */
+    /*
+     * FIXME
     public abstract boolean drawImage(Image img,
                                       int dx1, int dy1, int dx2, int dy2,
                                       int sx1, int sy1, int sx2, int sy2,
                                       Color bgcolor,
                                       ImageObserver observer);
-
+	*/
     /**
      * Disposes of this graphics context and releases
      * any system resources that it is using.
