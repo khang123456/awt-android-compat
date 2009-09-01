@@ -33,4 +33,15 @@ public class Arrays {
 		}
 		return target;
 	}
+
+	public static int[] copyOf(int[] source, int length) {
+		int [] target = new int[length];
+		for (int i = 0; i < target.length; i++) {
+			if (i > source.length-1)
+				target[i] = 0;
+			else
+				target[i] = source[i];
+		}
+		return target;
+	}
 }

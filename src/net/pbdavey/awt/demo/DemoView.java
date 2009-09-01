@@ -50,10 +50,10 @@ public class DemoView extends AwtView {
     public void init() {
         //Initialize drawing colors
         setBackground(bg);
-        // TODO setForeground(fg);
+        setForeground(fg);
     }
 
-    FontMetrics pickFont(Graphics2D g2,
+	FontMetrics pickFont(Graphics2D g2,
             String longString,
             int xSpace) {
     	boolean fontFits = false;
@@ -84,7 +84,7 @@ public class DemoView extends AwtView {
     	return fontMetrics;
     }
 
-	protected void paint(Graphics2D g2) {
+	public void paint(Graphics2D g2) {
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		Dimension d = getSize();
         int gridWidth = d.width / 6;
